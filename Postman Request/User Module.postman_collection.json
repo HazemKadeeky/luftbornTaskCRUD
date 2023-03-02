@@ -1,0 +1,309 @@
+{
+	"info": {
+		"_postman_id": "bb162221-4285-4888-b14f-e23d651cc192",
+		"name": "User Module",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4883438"
+	},
+	"item": [
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Create Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDAwNjBhNDUwODBjNzAwNjRhYWU2NTgiLCJuYW1lIjoiSGF6ZW0iLCJ1c2VybmFtZSI6ImthZGVla3kiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNjc3NzQ4NTAxfQ.A-kMVfRfhfSMa6jVBarbA-PCQLzpMlKFPskeWZ_GsMo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Task 1\",\r\n    \"username\":\"Kadeeky\",\r\n    \"description\":\"Testing Task Creation\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/task/createTask",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"task",
+								"createTask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDAwNjBhNDUwODBjNzAwNjRhYWU2NTgiLCJuYW1lIjoiSGF6ZW0iLCJ1c2VybmFtZSI6ImthZGVla3kiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNjc3NzQ4NTAxfQ.A-kMVfRfhfSMa6jVBarbA-PCQLzpMlKFPskeWZ_GsMo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Task 3\",\r\n    \"username\":\"Kadeeky\",\r\n    \"newDescription\": \"Testing again and again\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/task/updateTask",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"task",
+								"updateTask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Task 11\",\r\n    \"username\":\"Kadeeky\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/task/deleteTask",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"task",
+								"deleteTask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Task",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDAwNjBhNDUwODBjNzAwNjRhYWU2NTgiLCJuYW1lIjoiSGF6ZW0iLCJ1c2VybmFtZSI6ImthZGVla3kiLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNjc3NzQ4NTAxfQ.A-kMVfRfhfSMa6jVBarbA-PCQLzpMlKFPskeWZ_GsMo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Task 11\",\r\n    \"username\":\"Kadeeky\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/task/fetchTask",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"task",
+								"fetchTask"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"jwt\", pm.response.json().token)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRhY2FjNDE1YjRhNDdkYzc5ODJlOTQiLCJuYW1lIjoiSGF6ZW0iLCJ1c2VybmFtZSI6ImhhemVtIiwiYWNjZXNzIjoiYXV0aCIsImlhdCI6MTY0OTA2ODc4Mn0.oN37K1EgF8PBw6ocRt8IQVAIBR8vwOnTvwMH_gsOdc8",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"a1@example.com\",\r\n    \"password\":\"Aa@123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/user/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"a1@example.com\",\r\n    \"password\":\"Aa@123456\",\r\n    \"name\":\"Hazem\",\r\n    \"username\":\"Kadeeky\",\r\n    \"phone\":\"01000401384\",\r\n    \"gender\":\"Male\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/user/register",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit User Profile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRhY2FjNDE1YjRhNDdkYzc5ODJlOTQiLCJuYW1lIjoiSGF6ZW0iLCJ1c2VybmFtZSI6ImhhemVtIiwiYWNjZXNzIjoiYXV0aCIsImlhdCI6MTY0OTA2ODc4Mn0.oN37K1EgF8PBw6ocRt8IQVAIBR8vwOnTvwMH_gsOdc8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"test1@sg.com\",\r\n    \"name\":\" Kadeeky\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/user/editProfile",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"user",
+						"editProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "feyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRhY2FjNDE1YjRhNDdkYzc5ODJlOTQiLCJuYW1lIjoiS2FkZWVreSIsInVzZXJuYW1lIjoiaGF6ZW0iLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNjQ5MTUzNzUwfQ.AGAqHm0oA-pLKTK6TEGYnUf88awAVgGZ-cewSzTVgcw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/user/getUserProfile",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"user",
+						"getUserProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/user/getAllUsers",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"user",
+						"getAllUsers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
